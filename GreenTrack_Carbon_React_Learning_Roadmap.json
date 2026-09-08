@@ -1,0 +1,904 @@
+{
+  "project": {
+    "name": "GreenTrack Carbon",
+    "tagline": "A Sustainability and Carbon Footprint Tracking Platform",
+    "category": "Environmental Sustainability",
+    "technologyStack": {
+      "frontend": "React 19+ + TypeScript",
+      "backend": "Java 21 + Spring Boot 3",
+      "database": "MongoDB",
+      "authentication": "JWT + Spring Security",
+      "realTimeCommunication": "WebSockets",
+      "caching": "Redis (Phase 2 / optional)",
+      "deployment": "Docker + GitHub Actions + AWS",
+      "stateManagement": "Redux Toolkit + TanStack Query",
+      "frontendUI": "React Router + React Hook Form + Material UI",
+      "apiClient": "Fetch/Axios"
+    }
+  },
+  "executiveSummary": {
+    "problemStatement": "Most individuals are unaware of their carbon footprint and lack tools to measure, track, and reduce their environmental impact.",
+    "solution": "GreenTrack Carbon enables users to calculate, monitor, and improve their sustainability metrics through carbon tracking, goal setting, analytics, and personalized recommendations.",
+    "objectives": [
+      "Measure carbon emissions",
+      "Track environmental impact over time",
+      "Encourage sustainable behavior",
+      "Provide actionable recommendations",
+      "Promote environmental awareness"
+    ]
+  },
+  "userPersonas": [
+    {
+      "role": "Individual User",
+      "description": "Tracks personal carbon footprint, goals, activities, and recommendations."
+    },
+    {
+      "role": "Family Member",
+      "description": "Tracks household activities and contributes to a shared family carbon footprint."
+    },
+    {
+      "role": "Organization Employee",
+      "description": "Logs work-related sustainability activities and participates in organization challenges."
+    },
+    {
+      "role": "Sustainability Manager",
+      "description": "Monitors organization-wide emissions, departments, goals, initiatives, and sustainability reports."
+    },
+    {
+      "role": "Department Manager",
+      "description": "Views sustainability metrics for their department and monitors department goals and participation."
+    },
+    {
+      "role": "Platform Administrator",
+      "description": "Manages platform configuration, users, organizations, emission factors, and system-level reporting."
+    }
+  ],
+  "modules": {
+    "authentication": {
+      "features": [
+        "User Registration",
+        "Login",
+        "JWT Authentication",
+        "Refresh Tokens",
+        "Role-Based Access Control",
+        "Forgot Password",
+        "Email Verification"
+      ]
+    },
+    "userProfile": {
+      "fields": [
+        "Name",
+        "Email",
+        "Country",
+        "City",
+        "Household Size",
+        "Lifestyle Type"
+      ]
+    },
+    "activityTracking": {
+      "description": "Users log activities that contribute to carbon emissions.",
+      "categories": {
+        "transportation": {
+          "inputs": [
+            "Vehicle Type",
+            "Distance Travelled",
+            "Fuel Type"
+          ]
+        },
+        "electricity": {
+          "inputs": [
+            "Monthly Electricity Usage (kWh)"
+          ]
+        },
+        "foodConsumption": {
+          "inputs": [
+            "Meat Meals",
+            "Vegetarian Meals",
+            "Vegan Meals"
+          ]
+        },
+        "wasteManagement": {
+          "inputs": [
+            "Plastic Waste",
+            "Paper Waste",
+            "Recycled Waste"
+          ]
+        },
+        "waterConsumption": {
+          "inputs": [
+            "Monthly Water Usage"
+          ]
+        }
+      }
+    },
+    "carbonCalculationEngine": {
+      "description": "Core business engine for calculating emissions.",
+      "formula": "Emission = Activity Value × Emission Factor",
+      "sampleFactors": {
+        "petrolCar": 0.192,
+        "bus": 0.105,
+        "flight": 0.255,
+        "electricity": 0.82
+      }
+    },
+    "dashboard": {
+      "widgets": [
+        "Monthly Carbon Footprint",
+        "Yearly Carbon Footprint",
+        "Category Breakdown",
+        "Trend Analysis",
+        "Carbon Score",
+        "Goal Progress",
+        "Recommendations"
+      ],
+      "charts": [
+        "Pie Chart",
+        "Line Chart",
+        "Bar Chart",
+        "Area Chart"
+      ]
+    },
+    "goalManagement": {
+      "features": [
+        "Create Carbon Reduction Goals",
+        "Track Goal Progress",
+        "Target Achievement Monitoring",
+        "Goal Notifications"
+      ]
+    },
+    "recommendationEngine": {
+      "description": "Suggests actions to reduce emissions.",
+      "examples": [
+        "Use public transportation",
+        "Reduce AC usage",
+        "Switch to LED lighting",
+        "Reduce meat consumption",
+        "Increase recycling"
+      ]
+    },
+    "achievementSystem": {
+      "description": "Gamification layer for user engagement.",
+      "badges": [
+        "Eco Beginner",
+        "Green Hero",
+        "Carbon Ninja",
+        "Sustainability Champion"
+      ]
+    },
+    "communityModule": {
+      "features": [
+        "Leaderboards",
+        "City Comparisons",
+        "Community Challenges",
+        "Sustainability Rankings"
+      ]
+    },
+    "reportingModule": {
+      "features": [
+        "Monthly Reports",
+        "Yearly Reports",
+        "PDF Export",
+        "Excel Export",
+        "Comparative Analysis"
+      ]
+    },
+    "notificationModule": {
+      "features": [
+        "Goal Achievement Alerts",
+        "Recommendation Updates",
+        "Emission Increase Warnings",
+        "Community Challenge Notifications"
+      ],
+      "technology": "WebSockets"
+    },
+    "adminPortal": {
+      "features": [
+        "Manage Users",
+        "Manage Emission Factors",
+        "Generate Reports",
+        "Monitor Platform Analytics",
+        "System Configuration"
+      ]
+    }
+  },
+  "frontendArchitecture": {
+    "framework": "React 19+ + TypeScript",
+    "architecturePattern": "Feature-Based Modular Architecture",
+    "modules": [
+      "auth",
+      "dashboard",
+      "activities",
+      "goals",
+      "community",
+      "reports",
+      "organization",
+      "department",
+      "admin",
+      "shared"
+    ],
+    "features": [
+      "Functional Components",
+      "React Hooks",
+      "React Router",
+      "TanStack Query for server state",
+      "Redux Toolkit for cross-feature client state",
+      "React Hook Form",
+      "Lazy Loading",
+      "Route Guards / Protected Routes",
+      "HTTP Interceptors or API middleware",
+      "Reusable Design System Components",
+      "Accessibility (WCAG 2.1)",
+      "Code Splitting"
+    ],
+    "stateManagement": {
+      "serverState": [
+        "Activities",
+        "Dashboard Analytics",
+        "Goals",
+        "Reports",
+        "Organization Analytics"
+      ],
+      "clientState": [
+        "Authenticated User",
+        "Selected Organization",
+        "Selected Department",
+        "UI Preferences",
+        "Notifications"
+      ]
+    }
+  },
+  "backendArchitecture": {
+    "framework": "Spring Boot 3",
+    "layers": [
+      "Controller",
+      "Service",
+      "Repository",
+      "Database"
+    ],
+    "services": [
+      "AuthenticationService",
+      "ActivityService",
+      "CarbonCalculationService",
+      "DashboardService",
+      "GoalService",
+      "RecommendationService",
+      "NotificationService",
+      "ReportService",
+      "OrganizationService",
+      "DepartmentService",
+      "AuthorizationService"
+    ],
+    "architectureStyle": "Modular Monolith initially; designed so high-scale modules can be extracted later."
+  },
+  "security": {
+    "authentication": {
+      "description": "Authentication answers 'Who are you?' and establishes the user's identity.",
+      "mechanism": [
+        "Email/password login",
+        "JWT access token",
+        "Refresh token",
+        "Password encryption",
+        "Email verification",
+        "Optional SSO/OAuth2 as future enhancement"
+      ]
+    },
+    "authorization": {
+      "description": "Authorization answers 'What are you allowed to do?' based on tenant, role, department, and resource ownership.",
+      "model": "Multi-tenant RBAC with resource-level ownership checks",
+      "roles": [
+        "INDIVIDUAL_USER",
+        "FAMILY_ADMIN",
+        "ORGANIZATION_EMPLOYEE",
+        "DEPARTMENT_MANAGER",
+        "SUSTAINABILITY_MANAGER",
+        "PLATFORM_ADMIN"
+      ],
+      "examples": [
+        "Individual users can view and manage only their own activities and goals.",
+        "Family admins can manage their household members and shared household activities.",
+        "Organization employees can manage their own activities and view organization features permitted to employees.",
+        "Department managers can view metrics for their department but not other departments.",
+        "Sustainability managers can view organization-wide analytics and manage organization sustainability goals.",
+        "Platform admins can manage platform configuration and emission factors."
+      ],
+      "backend_enforcement": [
+        "Spring Security",
+        "JWT claims",
+        "Role-based endpoint protection",
+        "Organization/tenant checks",
+        "Department-level access checks",
+        "Resource ownership validation"
+      ]
+    }
+  },
+  "apiDesign": {
+    "authentication": [
+      "POST /api/auth/register",
+      "POST /api/auth/login",
+      "POST /api/auth/refresh-token",
+      "POST /api/auth/verify-email",
+      "POST /api/auth/forgot-password",
+      "POST /api/auth/reset-password",
+      "POST /api/auth/logout"
+    ],
+    "activities": [
+      "POST /api/activities",
+      "GET /api/activities",
+      "PUT /api/activities/{id}",
+      "DELETE /api/activities/{id}"
+    ],
+    "dashboard": [
+      "GET /api/dashboard/summary",
+      "GET /api/dashboard/trends"
+    ],
+    "goals": [
+      "POST /api/goals",
+      "GET /api/goals",
+      "PUT /api/goals/{id}"
+    ],
+    "reports": [
+      "GET /api/reports/monthly",
+      "GET /api/reports/yearly"
+    ],
+    "organization": [
+      "POST /api/organizations",
+      "GET /api/organizations/{id}",
+      "GET /api/organizations/{id}/departments",
+      "POST /api/organizations/{id}/departments",
+      "GET /api/organizations/{id}/analytics",
+      "GET /api/departments/{id}/analytics"
+    ]
+  },
+  "databaseDesign": {
+    "database": "MongoDB",
+    "collections": [
+      {
+        "name": "users",
+        "fields": [
+          "_id",
+          "name",
+          "email",
+          "country",
+          "city",
+          "householdSize"
+        ]
+      },
+      {
+        "name": "activities",
+        "fields": [
+          "_id",
+          "departmentId",
+          "organizationId",
+          "userId",
+          "type",
+          "value",
+          "carbonEmission",
+          "date"
+        ]
+      },
+      {
+        "name": "goals",
+        "fields": [
+          "_id",
+          "departmentId",
+          "organizationId",
+          "userId",
+          "targetReduction",
+          "deadline"
+        ]
+      },
+      {
+        "name": "achievements",
+        "fields": [
+          "_id",
+          "departmentId",
+          "organizationId",
+          "userId",
+          "badge",
+          "earnedDate"
+        ]
+      },
+      {
+        "name": "notifications",
+        "fields": [
+          "_id",
+          "departmentId",
+          "organizationId",
+          "userId",
+          "message",
+          "status",
+          "createdDate"
+        ]
+      },
+      {
+        "name": "organizations",
+        "fields": [
+          "_id",
+          "name",
+          "industry",
+          "country",
+          "city",
+          "subscriptionPlan",
+          "createdDate"
+        ]
+      },
+      {
+        "name": "departments",
+        "fields": [
+          "_id",
+          "organizationId",
+          "name",
+          "managerUserId",
+          "createdDate"
+        ]
+      },
+      {
+        "name": "memberships",
+        "fields": [
+          "_id",
+          "userId",
+          "organizationId",
+          "departmentId",
+          "role",
+          "status",
+          "joinedDate"
+        ]
+      }
+    ]
+  },
+  "mongodbAggregations": {
+    "useCases": [
+      "Monthly Carbon Emissions",
+      "Top Sustainable Users",
+      "City Carbon Rankings",
+      "Goal Achievement Statistics",
+      "Category Breakdown Reports"
+    ]
+  },
+  "realTimeFeatures": {
+    "technology": "WebSockets",
+    "events": [
+      "GoalAchieved",
+      "CarbonIncreased",
+      "RecommendationGenerated",
+      "ChallengeCompleted"
+    ]
+  },
+  "advancedFeatures": {
+    "emissionForecasting": {
+      "description": "Predict future carbon emissions based on historical trends."
+    },
+    "treeOffsetCalculator": {
+      "description": "Calculate number of trees required to offset carbon emissions."
+    },
+    "ruleBasedRecommendationEngine": {
+      "description": "Rule-based sustainability recommendations driven by emission thresholds, activity patterns, goals, and predefined sustainability rules."
+    }
+  },
+  "nonFunctionalRequirements": {
+    "performance": [
+      "Response Time < 2 seconds",
+      "Dashboard Load Time < 3 seconds"
+    ],
+    "security": [
+      "JWT Authentication",
+      "Encrypted Password Storage",
+      "HTTPS"
+    ],
+    "scalability": [
+      "Horizontal Scaling",
+      "Microservice Ready Architecture"
+    ],
+    "availability": [
+      "99.9% Uptime"
+    ]
+  },
+  "devOps": {
+    "containerization": [
+      "Angular Docker Container",
+      "Spring Boot Docker Container",
+      "MongoDB Container"
+    ],
+    "ciCd": {
+      "tool": "GitHub Actions",
+      "stages": [
+        "Build",
+        "Unit Tests",
+        "Code Quality Scan",
+        "Docker Build",
+        "Deployment"
+      ]
+    }
+  },
+  "testingStrategy": {
+    "frontend": [
+      "Unit Testing",
+      "Component Testing",
+      "Integration Testing"
+    ],
+    "backend": [
+      "JUnit",
+      "Mockito",
+      "API Testing"
+    ]
+  },
+  "futureEnhancements": [
+    "Mobile Application",
+    "IoT Device Integration",
+    "Smart Meter Integration",
+    "Carbon Credit Marketplace",
+    "Government Environmental Reporting"
+  ],
+  "interviewHighlights": [
+    "Angular Signals",
+    "NgRx State Management",
+    "Spring Security",
+    "JWT Authentication",
+    "MongoDB Aggregation Framework",
+    "WebSocket Communication",
+    "Docker Deployment",
+    "CI/CD Pipelines",
+    "Environmental Impact Analytics",
+    "Authentication vs Authorization",
+    "Multi-Tenant Architecture",
+    "RBAC with Organization and Department Scoping",
+    "React Feature-Based Architecture",
+    "TanStack Query vs Redux Toolkit",
+    "Resource-Level Authorization",
+    "Modular Monolith vs Microservices"
+  ],
+  "enterpriseUseCase": {
+    "why_organizations_use_greenTrack": [
+      "Track organization-wide carbon emissions",
+      "Compare sustainability performance across departments",
+      "Set department and organization reduction goals",
+      "Monitor employee participation",
+      "Generate sustainability reports",
+      "Identify high-emission categories",
+      "Provide targeted recommendations"
+    ],
+    "example_organization": {
+      "name": "Acme Technologies",
+      "departments": [
+        "Engineering",
+        "Human Resources",
+        "Facilities",
+        "Finance"
+      ],
+      "example_permissions": {
+        "employee": "Own activities + permitted organization challenges",
+        "departmentManager": "Department analytics + department goals",
+        "sustainabilityManager": "Organization-wide analytics + reports + sustainability configuration",
+        "platformAdmin": "Global platform administration"
+      }
+    }
+  },
+  "implementationStrategy": {
+    "phase1": [
+      "React + TypeScript",
+      "Spring Boot",
+      "MongoDB",
+      "Individual user authentication",
+      "Activity tracking",
+      "Carbon calculation",
+      "Personal dashboard"
+    ],
+    "phase2": [
+      "Organization and department model",
+      "Multi-tenant RBAC",
+      "Organization dashboard",
+      "Department analytics",
+      "Admin portal",
+      "Reports"
+    ],
+    "phase3": [
+      "WebSockets",
+      "Advanced MongoDB aggregation",
+      "AWS deployment",
+      "Docker",
+      "GitHub Actions",
+      "CloudWatch"
+    ],
+    "phase4_optional": [
+      "Redis caching",
+      "AI Sustainability Advisor",
+      "Emission forecasting",
+      "Advanced SSO/OAuth2",
+      "Further service decomposition only if scale requires it"
+    ]
+  },
+  "interviewPositioning": {
+    "one_line": "A multi-tenant sustainability and carbon analytics platform built with React, Java/Spring Boot, MongoDB and AWS.",
+    "frontend_story": "Demonstrates senior/staff-level React architecture, performance, state management, reusable components, accessibility, testing and scalable feature organization.",
+    "backend_story": "Demonstrates practical Java/Spring Boot REST API development, security, business logic and modular backend architecture.",
+    "cloud_story": "Demonstrates containerization, CI/CD, AWS deployment and observability.",
+    "architecture_story": "Demonstrates authentication, authorization, multi-tenancy, organization/department scoping, data aggregation, real-time updates and scalability decisions.",
+    "advanced_story": "The project demonstrates progressive engineering maturity: React architecture, Spring Boot APIs, security, multi-tenancy, MongoDB analytics, Docker, CI/CD, AWS deployment, performance and real-time features."
+  },
+  "learnerProfile": {
+    "startingPoint": [
+      "9 years of frontend experience, primarily Angular",
+      "Beginner in React",
+      "Beginner in Java",
+      "Beginner in Spring Boot",
+      "Beginner in MongoDB",
+      "Beginner in AWS"
+    ],
+    "primaryGoal": "Use one realistic project to learn React, Java/Spring Boot, MongoDB, AWS and enterprise engineering concepts while creating a credible portfolio demonstration.",
+    "strategy": "Learning-first, resume-second. Do not over-engineer. Each technology is introduced only after the previous layer is understood.",
+    "successCriteria": [
+      "Understand the fundamentals instead of copying generated code.",
+      "Be able to explain every major architectural decision.",
+      "Be able to build the core features independently after guided learning.",
+      "Deploy a working version to AWS within free/low-cost limits.",
+      "Be able to discuss the project confidently in Senior/Lead/Staff interviews."
+    ]
+  },
+  "learningRoadmap": {
+    "phase1_frontend_foundation": {
+      "duration": "Week 1-2",
+      "focus": "React fundamentals",
+      "learn": [
+        "JavaScript ES6+ fundamentals needed by React",
+        "JSX",
+        "Functional components",
+        "Props",
+        "State",
+        "useState",
+        "useEffect",
+        "useRef",
+        "Event handling",
+        "Conditional rendering",
+        "Lists and keys",
+        "Forms",
+        "React Router basics",
+        "Component composition"
+      ],
+      "build": [
+        "Login screen UI",
+        "Dashboard shell",
+        "Activity list",
+        "Activity form",
+        "Goal card",
+        "Reusable UI components"
+      ],
+      "do_not_learn_yet": [
+        "Micro-frontends",
+        "Advanced state architecture",
+        "WebSockets",
+        "Performance micro-optimizations"
+      ]
+    },
+    "phase2_react_intermediate": {
+      "duration": "Week 3",
+      "focus": "Build a maintainable React application",
+      "learn": [
+        "Custom hooks",
+        "Context API",
+        "React Router protected routes",
+        "Error boundaries",
+        "Form validation",
+        "TanStack Query fundamentals",
+        "Redux Toolkit fundamentals",
+        "Client state vs server state",
+        "Component reusability",
+        "Basic testing with React Testing Library"
+      ],
+      "build": [
+        "Authentication UI",
+        "Protected routes",
+        "Activity CRUD UI",
+        "Goals UI",
+        "Dashboard API integration",
+        "Loading/error/empty states"
+      ]
+    },
+    "phase3_java_foundation": {
+      "duration": "Week 4",
+      "focus": "Java from zero",
+      "learn": [
+        "Java syntax",
+        "Variables and data types",
+        "Methods",
+        "Classes and objects",
+        "Constructors",
+        "Interfaces",
+        "Inheritance basics",
+        "Collections",
+        "Generics basics",
+        "Exceptions",
+        "Streams basics",
+        "Optional basics",
+        "Maven basics"
+      ],
+      "build": [
+        "Small Java exercises",
+        "Simple carbon calculation console program",
+        "Domain model for User, Activity, Goal and EmissionFactor"
+      ],
+      "do_not_learn_yet": [
+        "Advanced concurrency",
+        "JVM internals",
+        "Complex design patterns",
+        "Reactive Java"
+      ]
+    },
+    "phase4_spring_boot": {
+      "duration": "Week 5",
+      "focus": "Build the backend step by step",
+      "learn": [
+        "Spring Boot project structure",
+        "REST controllers",
+        "Request/response DTOs",
+        "Service layer",
+        "Repository layer",
+        "Dependency injection",
+        "Configuration",
+        "Validation",
+        "Exception handling",
+        "REST API conventions"
+      ],
+      "build": [
+        "Activity APIs",
+        "Goal APIs",
+        "Dashboard APIs",
+        "Carbon calculation service",
+        "Global exception handling"
+      ]
+    },
+    "phase5_security_multitenancy": {
+      "duration": "Week 6",
+      "focus": "Authentication, authorization and enterprise access control",
+      "learn": [
+        "Authentication vs authorization",
+        "JWT fundamentals",
+        "Spring Security fundamentals",
+        "Password hashing",
+        "Access tokens and refresh tokens",
+        "Role-based access control",
+        "Organization/tenant boundaries",
+        "Department-level authorization",
+        "Resource ownership checks"
+      ],
+      "build": [
+        "Registration/login",
+        "JWT authentication",
+        "Protected APIs",
+        "Individual user role",
+        "Organization employee role",
+        "Department manager role",
+        "Sustainability manager role",
+        "Platform admin role"
+      ],
+      "important_interview_concept": "Frontend route protection improves user experience; backend authorization is the actual security boundary."
+    },
+    "phase6_mongodb_analytics": {
+      "duration": "Week 7",
+      "focus": "MongoDB and real business analytics",
+      "learn": [
+        "MongoDB documents and collections",
+        "Indexes",
+        "Querying",
+        "Pagination",
+        "Sorting and filtering",
+        "Aggregation pipeline",
+        "Data modeling",
+        "Basic query optimization"
+      ],
+      "build": [
+        "Activities collection",
+        "Goals collection",
+        "Organizations collection",
+        "Departments collection",
+        "Memberships collection",
+        "Monthly emission aggregation",
+        "Department comparison",
+        "Category breakdown",
+        "Goal achievement statistics"
+      ]
+    },
+    "phase7_aws_devops": {
+      "duration": "Week 8",
+      "focus": "Deployment and cloud fundamentals",
+      "learn": [
+        "Docker fundamentals",
+        "Dockerfile",
+        "Environment variables",
+        "GitHub Actions basics",
+        "AWS fundamentals",
+        "S3/static frontend hosting concepts",
+        "CloudFront concepts",
+        "Backend deployment concepts",
+        "CloudWatch basics",
+        "AWS billing/budget alerts"
+      ],
+      "build": [
+        "Containerize Spring Boot",
+        "Build React production bundle",
+        "Create CI pipeline",
+        "Deploy frontend",
+        "Deploy backend",
+        "Configure environment variables",
+        "Add basic monitoring"
+      ],
+      "cost_strategy": "Prefer free-tier/low-cost services and shut down resources when not in use. Avoid expensive infrastructure such as NAT Gateway unless there is a genuine learning reason."
+    },
+    "phase8_staff_level_polish": {
+      "duration": "After core 8 weeks",
+      "focus": "Architecture, performance and interview readiness",
+      "learn": [
+        "React rendering model",
+        "Memoization and when not to use it",
+        "Code splitting",
+        "Lazy loading",
+        "Virtualization",
+        "Caching strategy",
+        "WebSocket fundamentals",
+        "Observability",
+        "API versioning",
+        "Scalability trade-offs",
+        "Modular monolith vs microservices"
+      ],
+      "build": [
+        "Dashboard performance improvements",
+        "Lazy-loaded feature areas",
+        "Real-time notifications",
+        "Rule-based recommendations",
+        "Audit trail",
+        "Production-quality error handling"
+      ]
+    }
+  },
+  "mvpScope": {
+    "must_build": [
+      "Authentication",
+      "Individual carbon activity tracking",
+      "Carbon calculation engine",
+      "Personal dashboard",
+      "Goals",
+      "Rule-based recommendations",
+      "Organization and department model",
+      "RBAC",
+      "MongoDB aggregation",
+      "Basic reports",
+      "Docker",
+      "CI/CD",
+      "AWS deployment"
+    ],
+    "build_later": [
+      "WebSockets",
+      "Advanced reporting/export",
+      "Community leaderboard",
+      "Gamification",
+      "Forecasting",
+      "Redis caching"
+    ],
+    "exclude": [
+      "AI chatbot",
+      "AI sustainability advisor",
+      "Microservices from day one",
+      "Kubernetes",
+      "Kafka/message brokers",
+      "Complex distributed systems"
+    ]
+  },
+  "resumePositioning": {
+    "projectTitle": "GreenTrack Carbon — Multi-Tenant Sustainability & Carbon Analytics Platform",
+    "resumeBullets": [
+      "Built a full-stack sustainability analytics platform using React, TypeScript, Java, Spring Boot, MongoDB and AWS.",
+      "Designed a feature-based React architecture with protected routes, reusable components, server-state management and responsive analytics dashboards.",
+      "Implemented JWT authentication and multi-tenant RBAC with organization and department-level authorization using Spring Security.",
+      "Developed a carbon calculation engine and MongoDB aggregation pipelines for monthly trends, category breakdowns and organization analytics.",
+      "Containerized the application with Docker and implemented CI/CD using GitHub Actions with cloud deployment and monitoring."
+    ],
+    "interviewProof": [
+      "Can explain React fundamentals and intermediate architecture rather than only claiming React experience.",
+      "Can explain Java/Spring Boot backend flow from controller to service to repository.",
+      "Can explain authentication vs authorization and why backend authorization is required.",
+      "Can explain multi-tenancy and organization/department data isolation.",
+      "Can explain MongoDB modeling and aggregation.",
+      "Can explain AWS deployment, Docker and CI/CD.",
+      "Can discuss trade-offs and what was deliberately not implemented."
+    ]
+  }
+}
